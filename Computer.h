@@ -1,5 +1,5 @@
 #ifndef COMPUTER_H
-#define COMUTER_H
+#define COMPUTER_H
 
 #include "Player.h"
 
