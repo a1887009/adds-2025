@@ -6,18 +6,15 @@ Player * Referee::refGame(Player * player1, Player * player2) {
     Move * move1 = player1->makeMove();
     Move * move2 = player2->makeMove();
 
-    std::cout << player1->getName() << " chose " << move1->getName() << std::endl;
-    std::cout << player2->getName() << " chose " << move2->getName() << std::endl;
+    std::cout << player1->getName() << " " << player2->getName() << " " << move1->getName() << " " << move2->getName() << std::endl;
 
+    Player * winner = nullptr;
     if (move1->beats(*move2)) {
-        delete move1; delete move2;
-        return player1;
+        winner = player1;
     } else if (move2->beats(*move1)) {
-        delete move1; delete move2;
-        return player2;
+        winner = player2;
     }
 
-    std::cout << "It's a tie!" << std::endl;
     delete move1; delete move2;
-    return nullptr;
+    return winner;
 }

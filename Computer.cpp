@@ -26,9 +26,7 @@ Move * Computer::makeMove() const {
     if (move == 4) return new Robot();
     if (move == 5) return new Pirate();
     if (move == 6) return new Ninja();
-    if (move == 7) return new Zombie();
-
-    return new Rock();
+    return new Zombie();
 }
 
 std::string Computer::getName() const {return name;}
