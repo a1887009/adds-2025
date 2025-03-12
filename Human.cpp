@@ -14,7 +14,6 @@ Human::Human(std::string name) : name(name) {}
 
 Move * Human::makeMove() const {
     std::string move;
-    std::cout << "Enter Move: ";
     std::cin >> move;
     
     if (move == "Rock") return new Rock();
