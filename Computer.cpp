@@ -11,6 +11,8 @@
 #include "Ninja.h"
 #include "Zombie.h"
 
+Computer::Computer() : name("Computer") {}
+
 Computer::Computer(std::string name) : name(name) {}
 
 Move * Computer::makeMove() const {

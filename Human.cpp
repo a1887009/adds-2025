@@ -8,6 +8,7 @@
 #include "Ninja.h"
 #include "Zombie.h"
 
+Human::Human() : name("Human") {}
 
 Human::Human(std::string name) : name(name) {}
 
