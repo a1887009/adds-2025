@@ -15,20 +15,6 @@ Computer::Computer() : name("Computer") {}
 
 Computer::Computer(std::string name) : name(name) {}
 
-Move * Computer::makeMove() const {
-    int move= rand() % 8;
-    
-    switch (move) {
-        case 0: return new Rock();
-        case 1: return new Paper();
-        case 2: return new Scissors();
-        case 3: return new Monkey();
-        case 4: return new Robot();
-        case 5: return new Pirate();
-        case 6: return new Ninja();
-        case 7: return new Zombie();
-        default: return new Rock();
-    }
-}
+Move * Computer::makeMove() const {return new Rock();}
 
 std::string Computer::getName() const {return name;}
