@@ -8,9 +8,11 @@ Player * Referee::refGame(Player * player1, Player * player2) {
 
 
     Player * winner = nullptr;
-    if (move1->beats(*move2)) {
+    if (move1->getName() == move2->getName()) {
+        std::cout << "Tie" << std::endl;
+    } else if (move1->beats(*move2)) {
         winner = player1;
-    } else if (move2->beats(*move1)) {
+    } else {
         winner = player2;
     }
 
