@@ -1,6 +1,6 @@
 #include "RecursiveBinarySearch.h"
 
-bool RecursiveBinarySearch::search(std::vector<int>& list, int target, int start, int end) {
+bool RecursiveBinarySearch::search(std::vector<int> list, int target, int start, int end) {
     if (end == -1) end = list.size() - 1;
 
     if (start > end) return false; // List not found
