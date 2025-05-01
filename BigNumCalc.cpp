@@ -59,7 +59,6 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
         if (it2 != num2.rend()) ++it2;
     }
 
-    // Remove leading zeros
     while (result.size() > 1 && result.front() == 0) {
         result.pop_front();
     }
@@ -67,19 +66,30 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
     return result;
 }
 
-std::list<int> BigNumCalc::mul(std::list<int> num1, int num2) {
+std::list<int> BigNumCalc::mul(std::list<int> num1, std::list<int> num2) {
+    if (num2.size() != 1) {
+        std::cerr << "ERROR: mul() only supports single-digit multiplier.\n";
+        return {0};
+    }
+
+    int multiplier = num2.front();
     std::list<int> result;
-    auto it = num1.rbegin();
     int carry = 0;
 
-    while (it != num1.rend() || carry != 0) {
-        int digit1 = (it != num1.rend()) ? *it : 0;
-        int product = digit1 * num2 + carry;
+    auto it = num1.rbegin();
+    while (it != num1.rend()) {
+        int prod = (*it) * multiplier + carry;
+        result.push_front(prod % 10);
+        carry = prod / 10;
+        ++it;
+    }
 
-        result.push_front(product % 10);
-        carry = product / 10;
+    if (carry > 0) {
+        result.push_front(carry);
+    }
 
-        if (it != num1.rend()) ++it;
+    while (result.size() > 1 && result.front() == 0) {
+        result.pop_front();
     }
 
     return result;
