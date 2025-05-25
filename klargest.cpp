@@ -5,7 +5,7 @@
 
 int kth_largest(std::vector<int> values, int k) {
     // Check if k is valid
-    if (k <= 0 || k > values.size()) {
+    if (k <= 0 || k > static_cast<int>(values.size())) {
         throw std::invalid_argument("k must be between 1 and the size of the input vector.");
     }
 
@@ -14,7 +14,7 @@ int kth_largest(std::vector<int> values, int k) {
 
     for (int val : values) {
         minHeap.push(val);
-        if (minHeap.size() > k) {
+        if (static_cast<int>(minHeap.size()) > k) {
             minHeap.pop();  // Remove the smallest among the top k
         }
     }
