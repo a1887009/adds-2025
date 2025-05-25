@@ -158,14 +158,14 @@ class Heap {
             this->tree.push_back(element);
             heapIndex index = this->tree.size() - 1; // Index of the newly added element
             
-            // Bubble up the new element to maintain the min-heap property
+            // Bubble up the new element to maintain the heap data structure
             while(index > 1) {
                 heapIndex parentIndex = this->getParentPosition(index);
                 if(this->tree.at(index) < this->tree.at(parentIndex)) {
                     std::swap(this->tree.at(index), this->tree.at(parentIndex));
                     index = parentIndex; // Move up to the parent's position
                 } else {
-                    break; // The min-heap property is satisfied
+                    break; // The heap data structure property is satisfied
                 }
             }
         }
@@ -184,9 +184,7 @@ class Heap {
                 
                 // Restore the heap property by heapifying down from the current index
                 this->heapifyDown(index);
-            } else {
-
-            }
+            } // Element not found, do nothing
         }
         
         // TO BE IMPLEMENTED
