@@ -21,7 +21,7 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {
     auto it = documents.find(docid);
     if (it != documents.end()) {
         Document& doc = it->second;
-        if (doc.active_borrowers.size() < doc.license_limit) {
+        if (static_cast<int>(doc.active_borrowers.size()) < doc.license_limit) {
             doc.active_borrowers.insert(patronID);
             return true; // Document successfully borrowed
         }

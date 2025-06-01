@@ -7,7 +7,7 @@
 struct Document {
     std::string name;
     int id;
-    size_t license_limit;
+    int license_limit;
     std::unordered_set<int> active_borrowers;
 };
 
